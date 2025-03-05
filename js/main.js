@@ -1,3 +1,5 @@
+// this here is pure chatgpt code as im trying to learn the toggle modes
+
 function toggleMode() {
     const body = document.body;
     const button = document.querySelector('.toggle-btn');
