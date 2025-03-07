@@ -59,6 +59,12 @@ header {
     flex-grow: 1;
 }
 
+.slogan:hover
+{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
 @keyframes glow {
     from {
         text-shadow: 0 0 5px white, 0 0 10px white;
