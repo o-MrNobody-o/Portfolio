@@ -2,6 +2,7 @@
 :root {
     --bg-color: #F5F5F5;
     --text-color: #333333;
+    --button-color-trying:#00A8E8;
     --header-bg: #00A8E8;
     --article-bg: white;
     --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -11,6 +12,7 @@
     --bg-color: #121212;
     --text-color: #FFFFFF;
     --header-bg: #1A1A1A;
+    --button-color-trying:#14C38E;
     --article-bg: #1E1E1E;
     --shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
@@ -171,7 +173,7 @@ img:hover,
 
 /* BUTTONS */
 button {
-    background-color: var(--header-bg);
+    background-color: var(--button-color-trying);
     color: white;
     border: none;
     padding: 10px 15px;
