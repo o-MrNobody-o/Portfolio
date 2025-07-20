@@ -1,0 +1,571 @@
+:root {
+  --bg-color: #f0f4f8;
+  --text-color: #0a192f;
+  --primary-color: #3b82f6;
+  --primary-dark: #2563eb;
+  --border-color: #d1d5db;
+  --shadow-color: rgba(37, 99, 235, 0.15);
+
+  --header-bg: #ffffff;
+  --nav-bg: #f8fafc;
+  --section-bg: #ffffff;
+  --button-bg: #3b82f6;
+  --button-hover-bg: #2563eb;
+  --button-text-color: #ffffff;
+  --link-color: #1d4ed8;
+  --link-hover-color: #1e40af;
+  --eye-bg: #ffffff;
+  --eye-border: #3b82f6;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0a192f;
+  --text-color: #f8fafc;
+  --primary-color: #60a5fa;
+  --primary-dark: #3b82f6;
+  --border-color: #1e293b;
+  --shadow-color: rgba(96, 165, 250, 0.1);
+
+  --header-bg: #112240;
+  --nav-bg: #1c2b3a;
+  --section-bg: #112240;
+  --button-bg: #3b82f6;
+  --button-hover-bg: #60a5fa;
+  --button-text-color: #f8fafc;
+  --link-color: #60a5fa;
+  --link-hover-color: #93c5fd;
+  --eye-bg: #1c2b3a;
+  --eye-border: #60a5fa;
+}
+
+
+
+/* Define light and dark mode colors using CSS variables
+:root {
+  --bg-color: #f0f2f5;
+  --text-color: #1f2937;
+  --primary-color: #2563eb; 
+  --primary-dark: #1e40af;  
+  --border-color: #d1d5db;  
+  --shadow-color: rgba(37, 99, 235, 0.3);
+
+  --header-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --section-bg: #ffffff;
+  --button-bg: var(--primary-color);
+  --button-hover-bg: var(--primary-dark);
+  --button-text-color: #ffffff;
+  --link-color: var(--primary-color);
+  --link-hover-color: #1e3a8a;
+  --eye-bg: #ffffff;
+  --eye-border: var(--primary-color);
+}
+
+[data-theme="dark"] {
+  --bg-color: #121821;
+  --text-color: #e0e7ff;
+  --primary-color: #60a5fa;
+  --primary-dark: #2563eb;
+  --border-color: #374151;
+  --shadow-color: rgba(96, 165, 250, 0.4);
+
+  --header-bg: #1f2937;
+  --nav-bg: #1f2937;
+  --section-bg: #1f2937;
+  --button-bg: var(--primary-color);
+  --button-hover-bg: var(--primary-dark);
+  --button-text-color: #f0f9ff;
+  --link-color: var(--primary-color);
+  --link-hover-color: #93c5fd;
+  --eye-bg: #1f2937;
+  --eye-border: var(--primary-color);
+}
+ */
+/*  black and white theme
+:root {
+  --bg-color: #ffffff;        
+  --text-color: #000000;      
+  --primary-color: #000000;   
+  --primary-dark: #333333;    
+  --border-color: #cccccc;    
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  --header-bg: #ffffff;       
+  --nav-bg: #ffffff;         
+  --section-bg: #ffffff;      
+  --button-bg: #000000;       
+  --button-hover-bg: #333333; 
+  --button-text-color: #ffffff; 
+  --link-color: #000000;      
+  --link-hover-color: #555555; 
+  --eye-bg: #ffffff;
+  --eye-border: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #000000;        
+  --text-color: #f0f0f0;      
+  --primary-color: #f0f0f0;   
+  --primary-dark: #c0c0c0;   
+  --border-color: #222222;    
+  --shadow-color: rgba(255, 255, 255, 0.15);
+
+  --header-bg: #111111;      
+  --nav-bg: #111111;         
+  --section-bg: #111111;      
+  --button-bg: #f0f0f0;       
+  --button-hover-bg: #c0c0c0; 
+  --button-text-color: #000000; 
+  --link-color: #f0f0f0;
+  --link-hover-color: #cccccc;
+  --eye-bg: #111111;
+  --eye-border: #f0f0f0;
+}
+*/
+
+/* Body */
+body {
+  margin: 0;
+  padding-top: 90px;
+  padding-left: 145px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Paragraphs */
+p {
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--header-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 5px;
+  position: fixed;
+  top: 0px;
+  right: 5px;
+  left: 15px;
+  height: 75px;
+  align-items: center;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Logo Image */
+.Logo-image {
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Motto */
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+
+.Motto {
+  font-family: "EB Garamond", serif;
+  font-size: 26px;
+  color: var(--primary-color);
+  text-shadow: 0 0 5px var(--primary-color),0 0 10px #60a5fa, 0 0 20px #3b82f6;
+  font-style: italic;
+  text-align: center;
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.Motto:hover {
+  text-shadow: 0 0 10px #60a5fa, 0 0 20px #60a5fa, 0 0 30px #3b82f6;
+  color: var(--primary-dark);
+}
+
+/* Nav */
+nav {
+  position: fixed;
+  bottom: 0px;
+  top: 90px;
+  left: 5px;
+  width: 120px;
+  height: calc(93vh - 85px);
+  overflow-y: auto;
+  overflow-x: visible;
+  padding: 10px;
+  box-sizing: content-box;
+  background-color: var(--nav-bg);
+  box-shadow: 0 4px 10px var(--shadow-color);
+  border-radius: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80%;
+  padding: 2px;
+  margin: 0;
+  list-style: none;
+  gap: 15px;
+}
+
+/* Nav list items */
+.nav-list li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.nav-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list a.active {
+  color: var(--primary-dark);
+}
+
+/* Nav list images */
+.nav-list-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+.nav-list-image:hover,
+.nav-list a.active img {
+  transform: scale(1.15);
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  border-color: var(--primary-dark);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Sections */
+section {
+  margin-top: 10px;
+  padding: 15px;
+  background-color: var(--section-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px var(--shadow-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Home Section */
+.Home-Section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Profile Picture */
+.profile-picture {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 25%;
+  border: 2px solid var(--primary-color);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Intro Text */
+.intro {
+  font-size: 26px;
+  text-align: center;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+/* App Sections */
+.Web-App-Section,
+.Mobile-App-Section,
+.Desktop-App-Section,
+.Games-Section {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Project Card */
+.Project-card {
+  border: 2px solid var(--primary-color);
+  
+  width: calc(25% - 10px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 3px 10px var(--shadow-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Project Image */
+.Project-image {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 3px 10px var(--shadow-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Project-technlogie-list
+{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 10 px;
+  justify-content: center;
+  align-items: center; 
+  padding: 0;
+}
+
+.Tech-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px; 
+  width: 40px;
+}
+
+.Tech-Logo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; 
+}
+
+.Project-description
+{
+  font-size: 14px;
+}
+
+/* Contact Section */
+.Contact-section {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.Contact-section h2 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.contact-list li {
+  margin: 8px 0;
+}
+
+.contact-list a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Eye container */
+.eye-container {
+  display: flex;
+  gap: 10px;
+  margin: 0 10px;
+  position: relative;
+}
+
+/* Eye */
+.eye {
+  width: 40px;
+  height: 40px;
+  background: var(--eye-bg);
+  border: 2px solid var(--eye-border);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Pupil */
+.pupil {
+  width: 15px;
+  height: 15px;
+  background: var(--text-color);
+  border-radius: 50%;
+  position: absolute;
+  transition: transform 0.05s linear;
+}
+
+/* Eye blink */
+.eye::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease-in-out;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.eye.blink::after {
+  transform: scaleY(1);
+}
+
+/* BUTTON example for future use */
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+  box-shadow: 0 6px 14px var(--shadow-color);
+}
+
+
+
+
+.emoji-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.emoji-switch input {
+  opacity: 0;
+  width: 50px;
+  height: 26px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+/* The slider background */
+.emoji-switch .slider {
+  position: absolute;
+  left: 35px; /* align behind input */
+  width: 50px;
+  height: 26px;
+  background-color: var(--border-color);
+  border-radius: 34px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+/* The sliding knob */
+.emoji-switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  top: 2px;
+  background-color: var(--button-text-color);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Move knob to right when checked */
+.emoji-switch input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* Change background color when checked */
+.emoji-switch input:checked + .slider {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 12px var(--shadow-color);
+}
+
+/* Emojis styles */
+.emoji-switch .emoji {
+  font-size: 18px;
+  user-select: none;
+  pointer-events: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.emoji-switch .moon {
+  color: var(--primary-color);
+}
+
+.emoji-switch input:checked ~ .moon {
+  color: var(--border-color);
+}
+
+.emoji-switch .sun {
+  color: var(--border-color);
+}
+
+.emoji-switch input:checked ~ .sun {
+  color: var(--primary-color);
+}
