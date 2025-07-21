@@ -123,6 +123,30 @@
 }
 */
 
+@media (max-width:900px) 
+{
+  .Project-card
+  {
+    width: calc(90%);
+  }
+  .Motto , .eye , .pupil
+  {
+    display: none;
+  }
+  .intro
+  {
+    font-size: 14px;
+  }
+  nav
+  {
+    width: 10%;
+  }
+  body
+  {
+    padding-left: 80px;
+  }
+}
+
 /* Body */
 body {
   margin: 0;
