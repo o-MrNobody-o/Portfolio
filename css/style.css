@@ -123,35 +123,12 @@
 }
 */
 
-@media (max-width:900px) {
-  .Project-card
-  {
-    width: calc(90%);
-  }
-  .Motto , .eye , .pupil
-  {
-    display: none;
-  }
-  .intro
-  {
-    font-size: 14px;
-  }
-  nav
-  {
-    width: 10%;
-  }
-  body
-  {
-    padding-left: 80px;
-  }
-}
-
 /* Body */
 body {
   margin: 0;
   padding-top: 90px;
   padding-left: 145px;
-  padding-right: 5px;
+  padding-right: 15px;
   padding-bottom: 10px;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -176,7 +153,7 @@ header {
   padding: 5px;
   position: fixed;
   top: 0px;
-  right: 5px;
+  right: 15px;
   left: 15px;
   height: 75px;
   align-items: center;
@@ -226,8 +203,6 @@ nav {
   overflow-x: visible;
   padding: 10px;
   box-sizing: content-box;
-  background-color: var(--nav-bg);
-  box-shadow: 0 4px 10px var(--shadow-color);
   border-radius: 10px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -294,6 +269,7 @@ nav::-webkit-scrollbar {
   box-shadow: 0 4px 12px var(--shadow-color);
 }
 
+
 /* Sections */
 section {
   margin-top: 10px;
@@ -302,8 +278,7 @@ section {
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   box-shadow: 0 3px 10px var(--shadow-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease,box-shadow 0.3s ease;
 }
 
 /* Home Section */
@@ -350,7 +325,7 @@ section {
 .Project-card {
   border: 2px solid var(--primary-color);
   
-  width: calc(25% - 10px);
+  width: calc(20% - 10px);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -415,6 +390,7 @@ section {
 }
 
 .contact-list {
+  text-align: left;
   list-style: none;
   padding: 0;
   font-size: 1.2rem;
@@ -433,6 +409,11 @@ section {
 .contact-list a:hover {
   color: var(--link-hover-color);
   text-decoration: underline;
+}
+
+i
+{
+  margin-right: 5px;
 }
 
 /* Eye container */
@@ -591,4 +572,38 @@ button:hover {
 
 .emoji-switch input:checked ~ .sun {
   color: var(--primary-color);
+}
+
+@media (max-width:900px) 
+{
+  .Project-card
+  {
+    width: calc(90%) ;
+  }
+  .Motto 
+  {
+    display: none;
+  }
+  .eye-container 
+  {
+    display: none;
+  }
+  .intro
+  {
+    font-size: 14px;
+  }
+  nav
+  {
+    width: 15%;
+  }
+  body
+  {
+    padding-left: 80px;
+  }
+
+  .contact-list li a 
+  {
+    font-size: 14px;
+  }
+
 }
