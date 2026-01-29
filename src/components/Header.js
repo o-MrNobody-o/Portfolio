@@ -29,7 +29,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             Projects
           </a>
           <a 
-            href="https://github.com/username" 
+            href="https://github.com/o-MrNobody-o" 
             target="_blank" 
             rel="noopener noreferrer"
             className="transition-theme text-gray-600 dark:text-gray-300 hover:text-indigo-500 dark:hover:text-indigo-400"
