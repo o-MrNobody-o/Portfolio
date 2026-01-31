@@ -34,7 +34,7 @@ const projects = [
     image: "/images/infraDocs.png",
     type: "project",
     github: "https://github.com/o-MrNobody-o/Projet-Documentation-Prototype/tree/docs",
-    liveLink: "https://weather-dashboard.vercel.app"
+    liveLink: ""
   },
   {
     id: 3,
@@ -45,7 +45,18 @@ const projects = [
     type: "project",
     github: "https://github.com/o-MrNobody-o/CupcakeV1/tree/lighting",
     liveLink: ""
-  }
+  },
+  {
+    id: 4,
+    title: "Hangman Game (React)",
+    shortDescription: "A React-based Hangman game with bilingual support, riddles, and progress tracking.",
+    fullDescription: "A front-end only Hangman game built with React. It features English and French languages, 3 levels of difficulty with progressively fewer hints, and words/phrases sourced from proverbs, riddles, or sentences. Users can track all solved riddles, which are stored in localStorage, and reset progress with a dedicated button. A small form collects the user's name and email at the start, and the game state is saved for continuity. The project emphasizes clean UI, modular components, and a fun, interactive gameplay experience.",
+    image: "/images/hangman.png",
+    type: "webapp/game",
+    github: "https://github.com/o-MrNobody-o/Hangman",
+    liveLink: "https://hangman-kappa-three.vercel.app/"
+}
+
 ];
 
 export default projects;
