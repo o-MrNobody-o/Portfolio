@@ -55,8 +55,17 @@ const projects = [
     type: "webapp/game",
     github: "https://github.com/o-MrNobody-o/Hangman",
     liveLink: "https://hangman-kappa-three.vercel.app/"
+},
+{
+    id: 5,
+    title: "Memory Matching Game (React)",
+    shortDescription: "A React-based Memory Matching game with multiple themes, smooth animations, and responsive gameplay.",
+    fullDescription: "A front-end only Memory Matching game built with React. Players flip cards to find all matching pairs. The game features multiple selectable themes, including countries, animals, and technology. Cards have smooth flip animations, a responsive grid layout, and a move counter with a timer. The game state can be restarted at any time. The project emphasizes clean UI, modular React components, and a fun, interactive gameplay experience suitable for all ages.",
+    image: "/images/memory-game.png",
+    type: "webapp/game",
+    github: "https://github.com/o-MrNobody-o/Memory-Game",
+    liveLink: "https://memory-game-puce-zeta.vercel.app/"
 }
-
 ];
 
 export default projects;
