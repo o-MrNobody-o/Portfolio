@@ -65,6 +65,16 @@ const projects = [
     type: "webapp/game",
     github: "https://github.com/o-MrNobody-o/Memory-Game",
     liveLink: "https://memory-game-puce-zeta.vercel.app/"
+},
+{
+    id: 6,
+    title: "Gym Progress Tracker (Next.js)",
+    shortDescription: "A full-stack fitness tracker with workout logging, nutrition, and a coach/client relationship secured by Postgres row-level security.",
+    fullDescription: "A full-stack fitness application built with Next.js 15, TypeScript, Supabase (Postgres, Auth, Realtime) and Drizzle ORM. Users log workouts set by set, track calories against Mifflin-St Jeor targets using dual-source food search (USDA FoodData Central and Open Food Facts), and monitor sleep, water and body weight. Progress analytics compute estimated 1RM and weekly training volume entirely in SQL. The distinguishing feature is a coach/client relationship: coaches invite clients through an enumeration-safe lookup, view their analytics, build and assign workout programs, and message them in real time. Authorization uses a two-layer model — Server Action ownership checks on the ORM path and Postgres row-level security guarding the public API path — verified by 105 integration tests that attempt to break the permission model. Also includes an admin role with a configurable coach approval workflow, a PWA install surface, and a persistent rest timer that survives backgrounding.",
+    image: "/images/GymTracker.png",
+    type: "webapp/fullstack",
+    github: "https://github.com/o-MrNobody-o/Gym-APP",
+    liveLink: "https://gym-app-by-mr-nobody.vercel.app/"
 }
 ];
 
