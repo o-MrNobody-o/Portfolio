@@ -1,136 +1,122 @@
 import React, { useState } from 'react';
+import { categories } from '../data/projects';
 
 /**
  * ProjectCard Component
- * 
- * Displays an individual project card with image, title, description, and action buttons.
- * Features:
- * - Shows shortDescription by default
- * - Toggle button to expand/collapse full description
- * - "Read more" / "Show less" button only shown when fullDescription differs
- * - Shows "Live Demo" button only for webapp/game type with liveLink
- * 
+ *
+ * Every card has the same two actions:
+ * - Demo: opens the hosted app ("live") or a YouTube walkthrough ("video")
+ * - GitHub: opens the repository
+ * The category tag is only a label.
+ *
  * @param {object} project - Project data object
  */
 const ProjectCard = ({ project }) => {
-  const { title, shortDescription, fullDescription, image, type, github, liveLink } = project;
-  
-  // State for toggling between short and full description
+  const { title, shortDescription, fullDescription, image, category, github, demo } = project;
   const [isExpanded, setIsExpanded] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
 
-  // Get the description text (support legacy 'description' field for backwards compatibility)
-  const cardDescription = shortDescription || project.description || '';
-  const expandedDescription = fullDescription || '';
+  const tag = categories[category] || { label: category, name: category, icon: 'fa-solid fa-tag', badge: 'bg-zinc-500/15 text-zinc-600 dark:text-zinc-300 ring-zinc-500/30' };
 
-  // Check if we should show the "Read more" button
-  // Only show if fullDescription exists and is different from shortDescription
-  const hasExpandableContent = expandedDescription && expandedDescription !== cardDescription;
+  const cardDescription = shortDescription || '';
+  const hasExpandableContent = fullDescription && fullDescription !== cardDescription;
+  const displayDescription = isExpanded ? fullDescription : cardDescription;
 
-  // Determine which description to display
-  const displayDescription = isExpanded ? expandedDescription : cardDescription;
+  const isVideo = demo?.type === 'video';
+  const hasDemo = Boolean(demo?.url);
 
-  // Toggle handler
-  const toggleExpanded = () => {
-    setIsExpanded(prev => !prev);
+  // Spotlight that follows the cursor across the card
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty('--y', `${e.clientY - rect.top}px`);
   };
 
   return (
-    <div className="group relative rounded-2xl overflow-hidden transition-all duration-500 bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl hover:-translate-y-2 card-glow flex flex-col h-full">
-      {/* Project Image */}
-      <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          onError={(e) => {
-            // Fallback for missing images - show a placeholder
-            e.target.src = `https://via.placeholder.com/400x300/6366f1/ffffff?text=${encodeURIComponent(title)}`;
-          }}
-        />
-        {/* Project Type Badge */}
-        <span className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold ${
-          type === 'webapp/game' 
-            ? 'bg-green-500 text-white' 
-            : 'bg-blue-500 text-white'
-        }`}>
-          {type === 'webapp/game' ? '🚀 Live' : '📁 Project'}
+    <article
+      onMouseMove={handleMouseMove}
+      className="spotlight group relative flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-200/80 bg-white/70 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-indigo-400/40 hover:shadow-2xl hover:shadow-indigo-500/10 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-indigo-400/30"
+    >
+      {/* Image */}
+      <div className="relative m-2 mb-0 aspect-[16/10] overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500/20 via-violet-500/20 to-fuchsia-500/20">
+        {imageFailed ? (
+          <div className="flex h-full w-full items-center justify-center text-4xl text-indigo-400/60">
+            <i className={tag.icon}></i>
+          </div>
+        ) : (
+          <img
+            src={image}
+            alt={title}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            onError={() => setImageFailed(true)}
+          />
+        )}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+        {/* Category tag */}
+        <span className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ring-1 backdrop-blur-md bg-white/80 dark:bg-zinc-950/60 ${tag.badge}`}>
+          <i className={`${tag.icon} text-[10px]`}></i>
+          {tag.name}
         </span>
       </div>
 
-      {/* Card Content */}
-      <div className="p-6 flex flex-col flex-grow">
-        {/* Title */}
-        <h3 className="text-xl font-bold mb-2 transition-theme text-gray-900 dark:text-white group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+      {/* Content */}
+      <div className="relative flex flex-grow flex-col p-6">
+        <h3 className="font-display text-xl font-semibold tracking-tight text-zinc-900 dark:text-white">
           {title}
         </h3>
 
-        {/* Description Container */}
-        <div className="mb-4 flex-grow">
-          {/* Description Text - No truncation when expanded */}
-          <p 
-            className={`text-sm transition-theme text-gray-600 dark:text-gray-400 ${
-              !isExpanded ? 'line-clamp-2' : ''
-            }`}
-          >
+        <div className="mb-6 mt-2 flex-grow">
+          <p className={`text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 ${!isExpanded ? 'line-clamp-3' : ''}`}>
             {displayDescription}
           </p>
-          
-          {/* Read More / Show Less Button - Only shown if expandable content exists */}
+
           {hasExpandableContent && (
             <button
-              onClick={toggleExpanded}
-              className="mt-2 text-sm font-medium text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors inline-flex items-center gap-1"
+              onClick={() => setIsExpanded(prev => !prev)}
+              className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
             >
               {isExpanded ? 'Show less' : 'Read more'}
-              <svg 
-                className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              <i className={`fa-solid fa-chevron-down text-[10px] transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}></i>
             </button>
           )}
         </div>
 
-        {/* Action Buttons - Pushed to bottom */}
-        <div className="flex gap-3 mt-auto">
-          {/* GitHub Button */}
+        {/* Actions */}
+        <div className="mt-auto flex gap-3">
+          {hasDemo ? (
+            <a
+              href={demo.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 bg-[length:200%_100%] bg-left px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all duration-500 hover:bg-right hover:shadow-indigo-500/40"
+            >
+              <i className={isVideo ? 'fa-brands fa-youtube' : 'fa-solid fa-arrow-up-right-from-square'}></i>
+              {isVideo ? 'Watch Demo' : 'Live Demo'}
+            </a>
+          ) : (
+            <span
+              className="flex flex-1 cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-dashed border-zinc-300 px-4 py-2.5 text-sm font-medium text-zinc-400 dark:border-white/15 dark:text-zinc-500"
+              title="Demo video coming soon"
+            >
+              <i className="fa-regular fa-clock"></i>
+              Demo soon
+            </span>
+          )}
+
           <a
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-300 bg-gray-900 dark:bg-gray-700 text-white hover:bg-gray-800 dark:hover:bg-gray-600 hover:scale-105"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800 transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-zinc-100 dark:hover:bg-white/10"
           >
-            {/* GitHub Icon */}
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-            </svg>
+            <i className="fa-brands fa-github text-base"></i>
             GitHub
           </a>
-
-          {/* Live Demo Button - Only shown for webapp/game with liveLink */}
-          {type === 'webapp/game' && liveLink && (
-            <a
-              href={liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-300 bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 hover:scale-105 shadow-lg shadow-indigo-500/30"
-            >
-              {/* External Link Icon */}
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-              Live Demo
-            </a>
-          )}
         </div>
       </div>
-
-      {/* Hover Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-    </div>
+    </article>
   );
 };
 
