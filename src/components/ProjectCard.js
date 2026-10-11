@@ -105,15 +105,17 @@ const ProjectCard = ({ project }) => {
             </span>
           )}
 
-          <a
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800 transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-zinc-100 dark:hover:bg-white/10"
-          >
-            <i className="fa-brands fa-github text-base"></i>
-            GitHub
-          </a>
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800 transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-zinc-100 dark:hover:bg-white/10"
+            >
+              <i className="fa-brands fa-github text-base"></i>
+              GitHub
+            </a>
+          )}
         </div>
       </div>
     </article>

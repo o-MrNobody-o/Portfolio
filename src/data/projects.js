@@ -45,6 +45,16 @@ export const categories = {
 
 const projects = [
   {
+    id: 7,
+    title: "Los Pollos Hermanos",
+    category: "project",
+    shortDescription: "A full restaurant web app themed on the Breaking Bad chicken chain (fan project): menu with extras, live order tracking, table bookings and an admin back office.",
+    fullDescription: "A full restaurant web app themed on the fictional chicken chain from Breaking Bad (fan project, not affiliated with AMC or Sony). Customers browse and filter the menu, order items with extras (sauces, sizes, spice, add-ons), check out for pickup, delivery or dine-in, track their orders live and book tables. Staff work from a live orders board and a reservations timeline; admins manage the menu, prices, photos, tables, opening hours, site content and user roles. Built with Next.js, TypeScript, Supabase (Auth, Postgres + RLS, Realtime, Storage), Tailwind and shadcn/ui on Vercel. Money is stored as integer cents and every total is computed in the database, so the browser never sends prices.",
+    image: "/images/LosPollosHermanos.png",
+    github: "",
+    demo: { type: "live", url: "https://lospolloshermanos.achref.org" }
+  },
+  {
     id: 6,
     title: "Gym Progress Tracker",
     category: "project",
