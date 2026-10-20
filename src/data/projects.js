@@ -45,6 +45,16 @@ export const categories = {
 
 const projects = [
   {
+    id: 8,
+    title: "Wedding Invitation",
+    category: "project",
+    shortDescription: "We'll handle your wedding invitation: an animated digital invite your guests open like an envelope, with online RSVP and a guest list you manage yourself.",
+    fullDescription: "We'll handle your wedding invitation, from the first tap to the last RSVP. Guests open an animated envelope sealed with your initials, then find your story, the schedule, the venue map, the dress code and an add-to-calendar button. Each guest can get a personal link (\"Dear Nikos…\") limited to their number of seats, and can change their answer until the deadline. The couple gets a private admin page to add guests, send personal links over WhatsApp, import or export the list as CSV and follow the answers live. Available in English, French, Arabic (RTL) and Greek, and designed for phones first. Built as a reusable template with Next.js, TypeScript, Tailwind CSS, Framer Motion and Supabase on Vercel: one config file per couple, and every wedding's data is kept separate in the database.",
+    image: "/images/WeddingInvite.png",
+    github: "",
+    demo: { type: "live", url: "https://wedding-invite-one-tan.vercel.app/" }
+  },
+  {
     id: 7,
     title: "Los Pollos Hermanos",
     category: "project",
