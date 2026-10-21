@@ -45,6 +45,16 @@ export const categories = {
 
 const projects = [
   {
+    id: 9,
+    title: "ABIR · عبير",
+    category: "project",
+    shortDescription: "A storefront for a Tunisian artisan perfume brand: the collection in French, Arabic and English, orders over WhatsApp, and an admin panel to manage products and prices.",
+    fullDescription: "ABIR is a one-page site for a small Tunisian perfume house. Visitors browse the collection by category (men, women, home, car), see prices in dinars, and order any bottle in one tap through a pre-filled WhatsApp message. The site comes in French, Arabic (full right-to-left layout) and English, with a black-and-silver theme drawn from the brand's calligraphy logo and a light theme one click away. The owner gets a private admin panel to add products, upload photos, change prices, mark bottles out of stock, translate each product and read customer reviews; saved changes appear on the site within seconds. Built with Next.js, TypeScript, Tailwind CSS and Supabase on Vercel, with pages generated ahead of time for speed and every write protected by database-level security rules.",
+    image: "/images/Abir.png",
+    github: "",
+    demo: { type: "live", url: "https://parfumeri-aboura.vercel.app/" }
+  },
+  {
     id: 8,
     title: "Wedding Invitation",
     category: "project",
