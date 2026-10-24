@@ -56,13 +56,13 @@ const projects = [
   },
   {
     id: 8,
-    title: "Wedding Invitation",
+    title: "Lovenvelope",
     category: "project",
-    shortDescription: "We'll handle your wedding invitation: an animated digital invite your guests open like an envelope, with online RSVP and a guest list you manage yourself.",
-    fullDescription: "We'll handle your wedding invitation, from the first tap to the last RSVP. Guests open an animated envelope sealed with your initials, then find your story, the schedule, the venue map, the dress code and an add-to-calendar button. Each guest can get a personal link (\"Dear Nikos…\") limited to their number of seats, and can change their answer until the deadline. The couple gets a private admin page to add guests, send personal links over WhatsApp, import or export the list as CSV and follow the answers live. Available in English, French, Arabic (RTL) and Greek, and designed for phones first. Built as a reusable template with Next.js, TypeScript, Tailwind CSS, Framer Motion and Supabase on Vercel: one config file per couple, and every wedding's data is kept separate in the database.",
+    shortDescription: "We'll handle your wedding invitation: an animated digital invite your guests open like an envelope, with online RSVP and a guest list you manage yourself. Each couple gets their own address on lovenvelope.com.",
+    fullDescription: "Lovenvelope handles your wedding invitation, from the first tap to the last RSVP. Guests open an animated envelope sealed with your initials, then find your story, the schedule, the venue map, the dress code and an add-to-calendar button. Each guest can get a personal link (\"Dear John Doe…\") limited to their number of seats, and can change their answer until the deadline. The couple gets a private admin page to add guests, send personal links over WhatsApp, import or export the list as CSV and follow the answers live. Available in French, German, English, Arabic (right-to-left) and Greek, with a language switch, and designed for phones first. One site serves every couple on their own subdomain (mr-nobody-mrs-nobody.lovenvelope.com): each couple's names, texts, colors, photos and music are stored as validated settings in the database, so a new invitation needs no code, and each one can be a draft, live or switched off, with an end date after which it closes by itself. Built with Next.js, TypeScript, Tailwind CSS, Framer Motion and Supabase on Vercel, with every couple's guests and answers kept apart by database security rules.",
     image: "/images/WeddingInvite.png",
     github: "",
-    demo: { type: "live", url: "https://wedding-invite-one-tan.vercel.app/" }
+    demo: { type: "live", url: "https://mr-nobody-mrs-nobody.lovenvelope.com" }
   },
   {
     id: 7,
